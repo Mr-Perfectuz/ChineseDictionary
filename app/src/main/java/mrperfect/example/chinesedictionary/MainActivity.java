@@ -1,5 +1,6 @@
 package mrperfect.example.chinesedictionary;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -54,19 +55,26 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        menuSettings =  menu.findItem(R.id.action_settings);
+        menuSettings = menu.findItem(R.id.action_settings);
+
+        String id = Global.getState(this, "dictionary type ");
+        if (id != null) {
+            onOptionsItemSelected(menu.findItem(Integer.valueOf(id)));
+        }
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected( MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+
+        Global.saveState(this, "dictionary type ", String.valueOf(id));
 
         if (id == R.id.action_english_to_chinese) {
             menuSettings.setIcon(getDrawable(R.drawable.ic_arrows));
         } else if (id == R.id.action_chinese_to_english) {
             menuSettings.setIcon(getDrawable(R.drawable.ic_arrows));
-        } else if(id==R.id.action_chinese_to_chinese) {
+        } else if (id == R.id.action_chinese_to_chinese) {
             menuSettings.setIcon(getDrawable(R.drawable.ic_arrows));
         }
 
