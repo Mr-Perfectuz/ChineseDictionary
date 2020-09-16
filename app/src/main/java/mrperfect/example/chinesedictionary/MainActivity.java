@@ -1,6 +1,7 @@
 package mrperfect.example.chinesedictionary;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
@@ -8,6 +9,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -17,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
+    MenuItem menuSettings;
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -51,7 +54,23 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        menuSettings =  menu.findItem(R.id.action_settings);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected( MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_english_to_chinese) {
+            menuSettings.setIcon(getDrawable(R.drawable.ic_arrows));
+        } else if (id == R.id.action_chinese_to_english) {
+            menuSettings.setIcon(getDrawable(R.drawable.ic_arrows));
+        } else if(id==R.id.action_chinese_to_chinese) {
+            menuSettings.setIcon(getDrawable(R.drawable.ic_arrows));
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
