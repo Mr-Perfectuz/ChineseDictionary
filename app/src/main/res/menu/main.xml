@@ -2,6 +2,37 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/acttion_settings"
+        android:orderInCategory="100"
+        android:title="Settings"
+        android:icon="@drawable/ic_translate"
+        app:showAsAction="always">
+
+        <menu>
+            <item
+                android:icon="@drawable/ic_arrows"
+                app:showAsAction="never"
+                android:orderInCategory="100"
+                android:id="@+id/action_english_to_chinese"
+                android:title="Enlish to Chinese" />
+
+            <item
+                android:icon="@drawable/ic_arrows"
+                app:showAsAction="never"
+                android:orderInCategory="100"
+                android:id="@+id/action_chinese_to_english"
+                android:title="Chinese to Enlish" />
+
+            <item
+                android:icon="@drawable/ic_arrows"
+                app:showAsAction="never"
+                android:orderInCategory="100"
+                android:id="@+id/action_chinese_to_chinese"
+                android:title="Chinese to Chinese" />
+        </menu>
+
+    </item>
 
 
 </menu>
